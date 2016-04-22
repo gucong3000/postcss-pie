@@ -1,0 +1,36 @@
+{
+  "name": "postcss-pie",
+  "version": "2.0.0",
+  "description": "makes IE several of the most useful CSS3 decoration features.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "tape test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lojjic/PIE.git"
+  },
+  "keywords": [
+    "postcss",
+    "css",
+    "css3",
+    "postcss-plugin",
+    "ie",
+    "pie"
+  ],
+  "author": "gucong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lojjic/PIE/issues"
+  },
+  "homepage": "https://github.com/lojjic/PIE#readme",
+  "dependencies": {
+    "postcss": "^5.0.19"
+  },
+  "devDependencies": {
+    "tape": "^4.5.1"
+  }
+}

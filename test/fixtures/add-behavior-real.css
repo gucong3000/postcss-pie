@@ -1,0 +1,68 @@
+html {
+	-pie-load-path: "http://css3pie.com/pie";
+}
+
+.tabBox .tabs {
+	margin: 0;
+	padding: 0 10px;
+	overflow: hidden;
+	margin-bottom: -1px;
+	height: 2.25em;
+}
+
+.tabBox .tabs li {
+	float: left;
+	list-style: none;
+	margin: 0;
+	padding: .25em .25em 0;
+	height: 2em;
+	overflow: hidden;
+	position: relative;
+	z-index: 1;
+	border-bottom: 1px solid #fff;
+}
+
+.tabBox .tabs li.selected {
+	z-index: 3;
+}
+
+.tabBox .tabs a {
+	behavior: url("http://css3pie.com/pie/PIE.htc");
+	behavior: none\9\0;
+	float: left;
+	height: 2em;
+	line-height: 2em;
+	border-radius: 8px 8px 0 0;
+	background: #eee;
+	border: 1px solid #ccc;
+	border-bottom: 0;
+	padding: 0 10px;
+	color: #000;
+	text-decoration: none;
+}
+
+.tabBox .tabs .selected a {
+	behavior: url("http://css3pie.com/pie/PIE.htc");
+	behavior: none\9\0;
+	background: #fff;
+	box-shadow: #ccc 0 0 .25em;
+}
+
+.tabBox .tabs a:hover {
+	behavior: url("http://css3pie.com/pie/PIE.htc");
+	-pie-background: linear-gradient(#eef, #fff 70%);
+	background: linear-gradient(#eef, #fff 70%);
+}
+
+.tabBox .content {
+	behavior: url("http://css3pie.com/pie/PIE.htc");
+	behavior: none\9\0;
+	clear: left;
+	position: relative;
+	z-index: 2;
+	padding: 2em 1em;
+	border: 1px solid #ccc;
+	background: #fff;
+	border-radius: 3px;
+	box-shadow: #ccc 0 0 .25em;
+}
