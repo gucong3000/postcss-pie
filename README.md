@@ -1,47 +1,45 @@
-# [postcss](https://github.com/postcss/postcss)-pie
+# [postcss](https://github.com/postcss/postcss)-[pie](http://css3pie.com/)
 
 makes IE several of the most useful CSS3 decoration features
 
-CSS Level 3 brings with it some incredibly powerful styling features.  Rounded corners, soft drop shadows, gradient
-fills, and so on.  These are the kinds of elements our designer friends love to use because they make for attractive
-sites, but are difficult and time-consuming to implement, involving complex sprite images, extra non-semantic markup,
-large JavaScript libraries, and other lovely hacks.
+------
 
-CSS3 promises to do away with all that!  But as we all know, due to Internet Explorer's lack of support for any of
-these features, we must be patient and refrain from using them, and make do with the same old tedious techniques for
-the foreseeable future.
+[简体中文](README-zh.md)
 
-Or must we?
 
-PIE stands for Progressive Internet Explorer.  It is an IE attached behavior which, when applied to an element, allows
-IE to recognize and display a number of CSS3 properties.  Consider, if you will, the following CSS:
+postcss-pie is a plugin for [PostCSS](https://github.com/postcss/postcss), use [PIE](http://css3pie.com/), to makes IE several of the most useful CSS3 decoration features. like:
+*   [border-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius)
+*   [box-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow)
+*   [border-image](https://developer.mozilla.org/en-US/docs/Web/CSS/border-image)
+*   [CSS3 Backgrounds](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Background_and_Borders/Using_CSS_multiple_backgrounds)
+*   [Gradients](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Using_CSS_gradients)
 
-    #myElement {
-        background: #EEE;
-        padding: 2em;
-        -moz-border-radius: 1em;
-        -webkit-border-radius: 1em;
-        border-radius: 1em;
-    }
+## Usage
 
-This results in a box with nicely rounded corners in any of today's modern browsers, except of course for IE 6, 7, or
-8, which all display a square box.  However, add the following single rule to that CSS:
+1.   [Download the PIE distribution](http://css3pie.com/download-latest), and unzip it somewhere. sub path from the HTML document domain root. like: `/path/to/pie_files/`
+1.   config postcss 
+    ```JavaScript
+    var postcss = require('postcss');
+    var pie = require('postcss-pie');
 
-    #myElement {
-        ...
-        behavior: url(PIE.htc);
-    }
+    postcss([
+        pie({
+            // `PIE_IE9.js` and `PIE_IE678.js` path on CDN server. if you don't ues CDN, please delete `pieLoadPath`.
+            pieLoadPath: 'http://cdn.server/path/to/js-files/',
 
-Now the exact same rounded corners appear in IE!  That's all there is to it.  No, really, I mean it.
+            // file PIE.htc path. Must a absolute from the HTML document domain root
+            htcPath: '/path/to/pie_files/PIE.htc',
+        });
+    ]);
+    ```
 
-PIE currently has full or partial support for the following CSS3 features:
+1.   [Serving the correct Content-Type](http://css3pie.com/documentation/known-issues/#content-type)
 
-    * border-radius
-    * box-shadow
-    * border-image
-    * multiple background images
-    * linear-gradient as background image
+    IE requires that HTC behaviors are served up with a content-type header of "text/x-component", otherwise it will simply ignore the behavior. Many web servers are preconfigured to serve the correct content-type, but others are not.
+    If you have problems with the PIE behavior not being applied, check your server configuration and if possible update it to use the correct content-type. For Apache, you can do this in a .htaccess file:
 
-Other features such as radial gradients, multiple box shadows, and many many bugfixes are under development.  This is
-still a young project which has a long way to go, but is already pretty remarkable!  We're working on getting a site
-up with documentation and examples.  Contributions (code, documentation, testing) are greatly appreciated!
+    ```
+    AddType text/x-component .htc
+    ```
+
+[documentation of PIE](http://css3pie.com/documentation/)

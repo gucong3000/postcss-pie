@@ -11,24 +11,29 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lojjic/PIE.git"
+    "url": "git+https://github.com/gucong3000/postcss-pie.git"
   },
   "keywords": [
-    "postcss",
+    "border-image",
+    "border-radius",
+    "box-shadow",
     "css",
     "css3",
-    "postcss-plugin",
+    "gradient",
     "ie",
-    "pie"
+    "pie",
+    "postcss",
+    "postcss-plugin"
   ],
   "author": "gucong",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lojjic/PIE/issues"
+    "url": "https://github.com/gucong3000/postcss-pie/issues"
   },
-  "homepage": "https://github.com/lojjic/PIE#readme",
+  "homepage": "https://github.com/gucong3000/postcss-pie#readme",
   "dependencies": {
-    "postcss": "^5.0.19"
+    "postcss": "^5.0.19",
+    "request": "^2.72.0"
   },
   "devDependencies": {
     "tape": "^4.5.1"

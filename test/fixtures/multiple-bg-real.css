@@ -1,9 +1,4 @@
-html {
-	-pie-load-path: "http://css3pie.com/pie";
-}
 .test {
-	behavior: url("http://css3pie.com/pie/PIE.htc");
-	behavior: none\9\0;
 	width: 300px;
 	height: 300px;
 	-pie-background: url(skin/p_103x196_1.jpg) no-repeat 10px 20px/60px 60px padding-box,

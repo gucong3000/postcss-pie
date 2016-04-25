@@ -1,79 +1,86 @@
 "use strict";
 var postcss = require("postcss");
 
-// 判断background属性的取值中有无css3语法的取值
-function hasCSS3Value(value) {
-    return /(?:text|contain|cover(?:(?:padding|border|content)-box))/.test(value) || /\//.test(value.replace(/\burl\([^)]\)/, ""));
-}
+module.exports = postcss.plugin("postcss-pie", function(options) {
+    if (options) {
+        process.nextTick(function() {
+            function testRemotesJs(url) {
+                request
+                    .get(url)
+                    .on("error", function(err) {
+                        console.info("options.pieLoadPath", err);
+                    });
+            }
 
-module.exports = postcss.plugin("postcss-pie", function(opts) {
+            var request = require("request");
+            if (options.htcPath && !/^\/.*/.test(options.htcPath)) {
+                console.info("options.htcPath: the URL has to either be absolute from the domain root");
+            }
+            if (options.pieLoadPath) {
+                var pieLoadPath = options.pieLoadPath.replace(/\/?$/, "/PIE_IE");
+                testRemotesJs(pieLoadPath + "678.js");
+                testRemotesJs(pieLoadPath + "9.js");
+            }
+        });
+    }
 
     return function(css) {
-        opts = opts || {};
-        opts.pieLoadPath = opts.pieLoadPath ? opts.pieLoadPath.replace(/\/?$/, "") : "http://css3pie.com/pie";
-        opts.htcPath = opts.htcPath || (opts.pieLoadPath + "/PIE.htc");
+        var opts = options || {};
 
-        var hasPatch;
-        var loadPath;
+        var hasBehavior;
 
         css.walkRules(function(rule) {
 
-            // 在css文件中寻找-pie-load-path配置
-            if (!loadPath && /^(?:html|\:root)$/.test(rule.selectors[rule.selectors.length - 1])) {
-                rule.walkDecls("-pie-load-path", function(decl) {
-                    loadPath = decl.value;
-                    if (loadPath) {
-                        return false;
-                    }
-                });
-            }
+            var needBehavior;
+            var hasGradient;
+            // 寻找pie不能直接获取到的css属性，给与“-pie”前缀以便pie可以访问
+            rule.walkDecls(function(decl) {
 
-            if (rule.selectors[0] !== ":root") {
-                var needPatch;
-                var hasGradient;
+                var needPrefix;
 
-                // 在css中寻找border-image、border-radius、box-shadow等PIE能够兼容的CSS3属性
-                rule.walkDecls(/^(?:-pie(?:-\w+)+|border-image|border-radius|box-shadow|background-(?:size|origin|clip))$/, function() {
-                    needPatch = true;
-                    return false;
-                });
+                if (/^background(?:-image)?$/.test(decl.prop) && /\bgradient\(/.test(decl.value)) {
+                    // 发现颜色渐变背景
+                    hasGradient = true;
+                    needPrefix = true;
+                } else if (decl.prop === "background" && /\b(?:\/|text|contain|cover(?:(?:padding|border|content)-box))\b/.test(decl.value.replace(/\burl\([^())]+\)/, ""))) {
+                    // background 属性中含有css3的属性值
+                    needPrefix = true;
+                } else if (/^background(?:-(?:color|image|repeat|attachment|position))?$/.test(decl.prop) && /,/.test(decl.value)) {
+                    // background或者color|image|repeat|attachment|position中有多背景图
+                    needPrefix = true;
+                } else if (!needBehavior && /(?:border-image|border-radius|box-shadow|background-(?:size|origin|clip))/.test(decl.prop)) {
+                    // 发现了其他pie可以兼容，但IE8根本不认识的css属性
+                    needBehavior = true;
+                }
 
-                // 寻找pie不能直接获取到的css属性，给与“-pie”前缀以便pie可以访问
-                rule.walkDecls(/^background\b/, function(decl) {
-                    var isGradient = /(?:\bgradient\(|,)/.test(decl.value);
-
-                    if(isGradient){
-                        hasGradient = true;
-                    }
-
-                    if (hasGradient || (decl.prop === "background" && hasCSS3Value(decl.value))) {
-                        needPatch = true;
-                        rule.insertBefore(decl, {
-                            prop: "-pie-" + decl.prop,
-                            value: decl.value,
-                        });
-                    }
-                });
-
-                // 如果当前rule中找到可PIE兼容的项目,则添加behavior属性
-                if (needPatch) {
-                    hasPatch = true;
-                    // 如果不需要兼容背景渐变,则在IE9下关闭behavior
-                    if (!hasGradient) {
-                        // IE9下重置behavior
-                        rule.prepend({
-                            prop: "behavior",
-                            value: "none\\9\\0",
-                        });
-                    }
-                    rule.prepend({
-                        prop: "behavior",
-                        value: "url(\"" + opts.htcPath + "\")",
+                if (needPrefix) {
+                    needBehavior = true;
+                    rule.insertBefore(decl, {
+                        prop: "-pie-" + decl.prop,
+                        value: decl.value,
                     });
                 }
+            });
+
+            // 如果当前rule中找到可PIE兼容的项目
+            if (needBehavior && opts.htcPath) {
+                hasBehavior = true;
+                // 如果不需要兼容背景渐变
+                if (!hasGradient && rule.selectors[0] !== ":root") {
+                    // IE9下关闭behavior
+                    rule.prepend({
+                        prop: "behavior",
+                        value: "none\\9\\0",
+                    });
+                }
+                // 添加behavior属性
+                rule.prepend({
+                    prop: "behavior",
+                    value: "url(\"" + opts.htcPath + "\")",
+                });
             }
         });
-        if (hasPatch && !loadPath) {
+        if (hasBehavior && opts.pieLoadPath) {
             css.prepend({
                 selector: "html"
             });
