@@ -2,29 +2,27 @@
 var postcss = require("postcss");
 
 module.exports = postcss.plugin("postcss-pie", function(options) {
-    if (options) {
-        process.nextTick(function() {
-            function testRemotesJs(url) {
-                request
-                    .get(url)
-                    .on("error", function(err) {
-                        console.info("options.pieLoadPath", err);
-                    });
-            }
 
-            var request = require("request");
+    return function(css, result) {
+        function testRemotesJs(url) {
+            require("request")
+                .get(url)
+                .on("error", function(err) {
+                    result.warn("options.pieLoadPath", err);
+                });
+        }
+        if (options) {
+
             if (options.htcPath && !/^\/.*/.test(options.htcPath)) {
-                console.info("options.htcPath: the URL has to either be absolute from the domain root");
+                options.htcPath = null;
+                result.warn("options.htcPath: the URL has to either be absolute from the domain root");
             }
             if (options.pieLoadPath) {
                 var pieLoadPath = options.pieLoadPath.replace(/\/?$/, "/PIE_IE");
                 testRemotesJs(pieLoadPath + "678.js");
                 testRemotesJs(pieLoadPath + "9.js");
             }
-        });
-    }
-
-    return function(css) {
+        }
         var opts = options || {};
 
         var hasBehavior;

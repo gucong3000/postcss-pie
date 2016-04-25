@@ -27,11 +27,8 @@ postcss-pie is a plugin for [PostCSS](https://github.com/postcss/postcss), use [
 
     postcss([
         pie({
-            // `PIE_IE9.js` and `PIE_IE678.js` path on CDN server. if you don't ues CDN, please delete `pieLoadPath`.
-            pieLoadPath: 'http://cdn.server/path/to/js-files/',
-
-            // file PIE.htc path. Must a absolute from the HTML document domain root
             htcPath: '/path/to/pie_files/PIE.htc',
+            pieLoadPath: 'http://cdn.server/path/to/js-files/',
         });
     ]);
     ```
@@ -45,4 +42,13 @@ postcss-pie is a plugin for [PostCSS](https://github.com/postcss/postcss), use [
     AddType text/x-component .htc
     ```
 
-[documentation of PIE](http://css3pie.com/documentation/)
+## Options
+
+Function pie(options) returns new PostCSS plugin. See [PostCSS API](https://github.com/postcss/postcss/blob/master/docs/api.md) for plugin usage documentation.
+
+There are 2 options:
+
+*   `htcPath` (string): `PIE.htc` file path, file must be in the same domain as the HTML page which uses. path must start with `/`. If not use this option, `PIE.htc` will not behavior, in this case, you need [pie-js](http://css3pie.com/documentation/pie-js/) way to use.
+*   `pieLoadPath` (string): parent path of `PIE_IE9.js` and `PIE_IE678.js`, must be a full path URL. if empty, parent path of `PIE.htc` will be use. if not use `htcPath` option, this option will disable.
+
+## [PIE documentation](http://css3pie.com/documentation/)

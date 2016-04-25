@@ -26,11 +26,8 @@ postcss-pie 由[PostCSS](https://github.com/postcss/postcss)与[PIE](http://css3
 
     postcss([
         pie({
-            // `PIE_IE9.js`与`PIE_IE678.js`在CDN服务器上的目录。不使用CDN的话，请删除pieLoadPath
-            pieLoadPath: 'http://cdn.server/path/to/js-files/',
-
-            // PIE.htc文件路径，必须使用`/`开头的绝对路径。注意文件应放在HTML文档所在服务器
             htcPath: '/path/to/pie_files/PIE.htc',
+            pieLoadPath: 'http://cdn.server/path/to/js-files/',
         });
     ]);
     ```
@@ -44,4 +41,13 @@ postcss-pie 由[PostCSS](https://github.com/postcss/postcss)与[PIE](http://css3
     AddType text/x-component .htc
     ```
 
-[PIE的文档](http://css3pie.com/documentation/)
+## Options
+
+函数 pie(options) 返回一个新的PostCSS插件。参见[PostCSS API](https://github.com/postcss/postcss/blob/master/docs/api.md)中的插件使用文档。
+
+一共有两个选项：
+
+*   `htcPath` (string): `PIE.htc` 的所在路径，文件必须放在HTML文档所在服务器，路径必须使用`/`开头的绝对路径(不支持跨域名使用)。不使用此选项，则不会调用htc文件，此时你需要[使用JS方式激活](http://css3pie.com/documentation/pie-js/)
+*   `pieLoadPath` (string): `PIE_IE9.js`和`PIE_IE678.js`所在目录的路径，必须为完整的URL路径，不使用此属性时，则自动从`PIE.htc`所在目录加载js文件。如果未声明`htcPath`属性，则此项配置无效。
+
+## [PIE的文档](http://css3pie.com/documentation/)
