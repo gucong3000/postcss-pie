@@ -1,4 +1,7 @@
-# [postcss](https://github.com/postcss/postcss)-[pie](http://css3pie.com/)
+[postcss](https://github.com/postcss/postcss)-[pie](http://css3pie.com/)
+======
+
+[![Build Status](https://travis-ci.org/gucong3000/h5form.svg?branch=master)](https://travis-ci.org/gucong3000/h5form)
 
 让IE兼容最常用的几个CSS3特性
 

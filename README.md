@@ -1,4 +1,7 @@
-# [postcss](https://github.com/postcss/postcss)-[pie](http://css3pie.com/)
+[postcss](https://github.com/postcss/postcss)-[pie](http://css3pie.com/)
+======
+
+[![Build Status](https://travis-ci.org/gucong3000/h5form.svg?branch=master)](https://travis-ci.org/gucong3000/h5form)
 
 makes IE several of the most useful CSS3 decoration features
 
