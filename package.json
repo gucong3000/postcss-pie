@@ -1,6 +1,6 @@
 {
   "name": "postcss-pie",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "makes IE several of the most useful CSS3 decoration features.",
   "main": "index.js",
   "directories": {
