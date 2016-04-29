@@ -9,7 +9,7 @@
 
 [English](README.md)
 
-postcss-pie 由[PostCSS](https://github.com/postcss/postcss)与[PIE](http://css3pie.com/)驱动，让IE6-IE8兼容CSS3特性:
+postcss-pie 由[PostCSS](https://github.com/postcss/postcss)与[PIE](http://css3pie.com/)驱动，让IE6-IE9兼容CSS3特性:
 *   [border-radius](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius)
 *   [box-shadow](https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-shadow)
 *   [border-image](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-image)

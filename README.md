@@ -10,7 +10,7 @@ makes IE several of the most useful CSS3 decoration features
 [简体中文](README-zh.md)
 
 
-postcss-pie is a plugin for [PostCSS](https://github.com/postcss/postcss), use [PIE](http://css3pie.com/), to makes IE several of the most useful CSS3 decoration features. like:
+postcss-pie is a plugin for [PostCSS](https://github.com/postcss/postcss), use [PIE](http://css3pie.com/), to makes IE6-IE9 several of the most useful CSS3 decoration features. like:
 *   [border-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius)
 *   [box-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow)
 *   [border-image](https://developer.mozilla.org/en-US/docs/Web/CSS/border-image)
