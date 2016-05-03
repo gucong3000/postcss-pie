@@ -15,13 +15,13 @@ function read(name) {
 
 function compareFixtures(t, name, msg, opts, postcssOpts) {
   postcssOpts = postcssOpts || {};
-  postcssOpts.from = filename('fixtures/' + name);
   opts = opts || {};
+  postcssOpts.from = filename('fixtures/' + name);
   var actual = postcss().use(plugin(opts)).process(read(postcssOpts.from), postcssOpts).css;
 
   var expected = read(filename('fixtures/' + name + '-out'));
   fs.writeFile(filename('fixtures/' + name + '-real'), actual);
-  t.equal(actual.trim(), expected.trim(), msg);
+  t.equal(actual.trim(), expected.trim(), msg || name);
 }
 
 test('add behavior', function(t) {
