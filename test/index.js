@@ -8,9 +8,13 @@ function process(css, postcssOpts, opts) {
 	var processors = [
 		require("..")(opts),
 	];
-	postcssOpts = postcssOpts || {};
 	return postcss(processors).process(css, postcssOpts).css;
 }
+
+process(".test-opts{}", undefined, {
+	htcPath: "PIE.htc",
+	pieLoadPath: "https://github.com/pie",
+});
 
 var files = fs.readdirSync("./test/fixtures");
 
