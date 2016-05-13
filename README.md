@@ -1,14 +1,15 @@
 [postcss](https://github.com/postcss/postcss)-[pie](http://css3pie.com/)
 ======
 
-[![Build Status](https://travis-ci.org/gucong3000/h5form.svg?branch=master)](https://travis-ci.org/gucong3000/h5form)
+[![Build Status](https://travis-ci.org/gucong3000/postcss-pie.svg?branch=master)](https://travis-ci.org/gucong3000/postcss-pie)
+[![NPM version](https://img.shields.io/npm/v/postcss-pie.svg?style=flat-square)](https://www.npmjs.com/package/postcss-pie)
+[![Coverage Status](https://img.shields.io/coveralls/gucong3000/postcss-pie.svg)](https://coveralls.io/r/gucong3000/postcss-pie)
 
 makes IE several of the most useful CSS3 decoration features
 
 ------
 
 [简体中文](README-zh.md)
-
 
 postcss-pie is a plugin for [PostCSS](https://github.com/postcss/postcss), use [PIE](http://css3pie.com/), to makes IE6-IE9 several of the most useful CSS3 decoration features. like:
 *   [border-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius)
