@@ -51,7 +51,7 @@ describe("fixtures", function() {
 
 		if (real !== output) {
 			allRight = false;
-			fs.writeFileSync("./test/fixtures/" + testName + "-out.css", real);
+			// fs.writeFileSync("./test/fixtures/" + testName + "-out.css", real);
 			return false;
 		}
 	});
