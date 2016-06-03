@@ -30,7 +30,7 @@ postcss-pie is a plugin for [PostCSS](https://github.com/postcss/postcss), use [
         pie({
             htcPath: '/path/to/pie_files/PIE.htc',
             pieLoadPath: 'http://cdn.server/path/to/js-files/',
-        });
+        })
     ]);
     ```
 
