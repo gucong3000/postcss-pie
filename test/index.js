@@ -19,7 +19,7 @@ process(".test-opts{}", undefined, {
 var files = fs.readdirSync("./test/fixtures");
 
 files = files.filter(function(filename) {
-	return /\.css$/.test(filename) && !/-(?:out|real)\.css$/.test(filename);
+	return /\.css$/.test(filename) && !/-out\.css$/.test(filename);
 });
 describe("fixtures", function() {
 
@@ -37,7 +37,7 @@ describe("fixtures", function() {
 
 		}
 		var real = process(input, {
-			form: inputFile
+			from: inputFile,
 		}, testName === "add-behavior" ? {
 			htcPath: "/PIE/build/PIE.htc",
 			pieLoadPath: "http://css3pie.com/pie",
@@ -45,7 +45,7 @@ describe("fixtures", function() {
 
 		if (allRight) {
 			it(testName, function() {
-				assert.equal(real, output);
+				assert.equal(output, real);
 			});
 		}
 

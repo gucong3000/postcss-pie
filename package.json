@@ -4,14 +4,16 @@
     "url": "https://github.com/gucong3000/postcss-pie/issues"
   },
   "dependencies": {
-    "postcss": "^5.0.19",
-    "request": "^2.72.0"
+    "postcss": "^5.2.6",
+    "request": "^2.79.0"
   },
   "description": "makes IE several of the most useful CSS3 decoration features",
   "devDependencies": {
-    "coveralls": "^2.11.9",
-    "istanbul": "^0.4.3",
-    "mocha": "^2.4.5"
+    "coveralls": "^2.11.15",
+    "eslint": "^3.11.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "node-version-check": "^2.1.1"
   },
   "homepage": "https://github.com/gucong3000/postcss-pie#readme",
   "keywords": [
@@ -34,9 +36,10 @@
     "url": "git+https://github.com/gucong3000/postcss-pie.git"
   },
   "scripts": {
+    "lint": "node-version-gte-4 && eslint lib/* || echo \"ESLint not supported\"",
     "coveralls": "npm run test-cov && coveralls < coverage/lcov.info",
-    "test": "mocha",
+    "test": "npm run lint && mocha",
     "test-cov": "istanbul cover node_modules/mocha/bin/_mocha"
   },
-  "version": "2.0.4"
+  "version": "2.0.5"
 }

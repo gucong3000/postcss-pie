@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/gucong3000/postcss-pie.svg?branch=master)](https://travis-ci.org/gucong3000/postcss-pie)
 [![NPM version](https://img.shields.io/npm/v/postcss-pie.svg?style=flat-square)](https://www.npmjs.com/package/postcss-pie)
 [![Coverage Status](https://img.shields.io/coveralls/gucong3000/postcss-pie.svg)](https://coveralls.io/r/gucong3000/postcss-pie)
+[![Windows Build Status](https://img.shields.io/appveyor/ci/gucong3000/postcss-pie.svg?style=flat&label=AppVeyor)](https://ci.appveyor.com/project/gucong3000/postcss-pie)
 
 makes IE several of the most useful CSS3 decoration features
 
@@ -30,7 +31,7 @@ postcss-pie is a plugin for [PostCSS](https://github.com/postcss/postcss), use [
         pie({
             htcPath: '/path/to/pie_files/PIE.htc',
             pieLoadPath: 'http://cdn.server/path/to/js-files/',
-        })
+        });
     ]);
     ```
 
