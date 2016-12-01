@@ -22,6 +22,9 @@ test_script:
   # run tests
   - npm test
 
+# Don't actually build.
+build: off
+
 on_success:
   - "npm run coveralls"
 
