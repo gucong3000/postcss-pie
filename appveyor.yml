@@ -24,7 +24,3 @@ test_script:
 
 # Don't actually build.
 build: off
-
-on_success:
-  - "npm run coveralls"
-
