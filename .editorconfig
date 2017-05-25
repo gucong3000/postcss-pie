@@ -1,6 +1,6 @@
-# This file is for unifying the coding style for different editors and IDEs
-# editorconfig.org
+# EditorConfig is awesome: http://EditorConfig.org
 
+# top-most EditorConfig file
 root = true
 
 [*]
@@ -13,9 +13,6 @@ trim_trailing_whitespace = true
 [*.{cmd,bat}]
 end_of_line = crlf
 
-[{package.json,.travis.yml}]
+[{package.json,.travis.yml,appveyor.yml,.gitlab-ci.yml}]
 indent_style = space
 indent_size = 2
-
-[*.7zSC]
-charset = utf-8-bom

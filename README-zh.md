@@ -38,7 +38,7 @@ postcss([
 ]);
 ```
 
-[确保正确的Content-Type](http://css3pie.com/documentation/known-issues/#content-type)
+## [确保正确的Content-Type](http://css3pie.com/documentation/known-issues/#content-type)
 
 如果IE在请求PIE.htc文件时，HTTP响应头中的Content-Type不是"text/x-component"，会造成功能失效。
 详见[PIE相关文档](http://css3pie.com/documentation/known-issues/#content-type)

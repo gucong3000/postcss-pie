@@ -38,7 +38,7 @@ postcss([
 ]);
 ```
 
-[Serving the correct Content-Type](http://css3pie.com/documentation/known-issues/#content-type)
+## [Serving the correct Content-Type](http://css3pie.com/documentation/known-issues/#content-type)
 
 IE requires that HTC behaviors are served up with a content-type header of "text/x-component", otherwise it will simply ignore the behavior.
 See [PIE related documents](http://css3pie.com/documentation/known-issues/#content-type)
