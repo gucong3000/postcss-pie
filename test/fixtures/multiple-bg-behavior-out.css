@@ -1,0 +1,15 @@
+html {
+	-pie-load-path: "http://css3pie.com/pie";
+}
+.test {
+	width: 300px;
+	height: 300px;
+	-pie-background: url(skin/p_103x196_1.jpg) no-repeat 10px 20px/60px 60px padding-box,
+	url(skin/p_103x196_1.jpg) no-repeat 50px 60px/60px 80px padding-box,
+	url(skin/p_103x196_1.jpg) no-repeat 90px 100px/60px padding-box #aaa;
+	background: url(skin/p_103x196_1.jpg) no-repeat 10px 20px/60px 60px padding-box,
+	url(skin/p_103x196_1.jpg) no-repeat 50px 60px/60px 80px padding-box,
+	url(skin/p_103x196_1.jpg) no-repeat 90px 100px/60px padding-box #aaa;
+	behavior: url("/pie/PIE.htc");
+	behavior: none\9\0;
+}

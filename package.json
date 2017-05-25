@@ -4,16 +4,17 @@
     "url": "https://github.com/gucong3000/postcss-pie/issues"
   },
   "dependencies": {
-    "postcss": "^5.2.6",
-    "request": "^2.79.0"
+    "postcss": "^6.0.1",
+    "request": "^2.81.0"
   },
-  "description": "makes IE several of the most useful CSS3 decoration features",
+  "description": "makes IE capable of rendering several of the most useful CSS3 decoration features.",
   "devDependencies": {
-    "coveralls": "^2.11.15",
-    "eslint": "^3.11.1",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.2.0",
-    "node-version-check": "^2.1.1"
+    "coveralls": "^2.13.1",
+    "eslint": "^3.19.0",
+    "got": "^6.7.1",
+    "mocha": "^3.4.1",
+    "nyc": "^10.3.2",
+    "sinon": "^2.3.1"
   },
   "homepage": "https://github.com/gucong3000/postcss-pie#readme",
   "keywords": [
@@ -31,15 +32,30 @@
   "license": "MIT",
   "main": "./lib/index",
   "name": "postcss-pie",
+  "nyc": {
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
+    "include": [
+      "lib/**/*.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "cache": true,
+    "all": true,
+    "check-coverage": true
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gucong3000/postcss-pie.git"
   },
   "scripts": {
-    "lint": "node-version-gte-4 && eslint lib/* || echo \"ESLint not supported\"",
-    "coveralls": "npm run test-cov && coveralls < coverage/lcov.info",
-    "test": "npm run lint && mocha",
-    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha"
+    "coveralls": "coveralls < coverage/lcov.info",
+    "pretest": "eslint lib test",
+    "test": "nyc mocha"
   },
-  "version": "2.0.5"
+  "version": "3.0.0"
 }

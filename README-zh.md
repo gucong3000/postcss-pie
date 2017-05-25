@@ -6,53 +6,41 @@
 [![AppVeyor](https://img.shields.io/appveyor/ci/gucong3000/postcss-pie.svg?&label=Windows)](https://ci.appveyor.com/project/gucong3000/postcss-pie)
 [![Coverage Status](https://img.shields.io/coveralls/gucong3000/postcss-pie.svg)](https://coveralls.io/r/gucong3000/postcss-pie)
 
-makes IE several of the most useful CSS3 decoration features
-
-让IE兼容最常用的几个CSS3特性
+使IE能够显示一些最有用的CSS3的装饰特性。
 
 ------
 
 [English](README.md)
 
-postcss-pie 由[PostCSS](https://github.com/postcss/postcss)与[PIE](http://css3pie.com/)驱动，让IE6-IE9兼容CSS3特性:
-*   [border-radius](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius)
-*   [box-shadow](https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-shadow)
-*   [border-image](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-image)
-*   [CSS3 Backgrounds](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Background_and_Borders/Using_CSS_multiple_backgrounds)
-*   [Gradients](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Images/Using_CSS_gradients)
+postcss-pie 由[PostCSS](https://github.com/postcss/postcss)与[PIE](http://css3pie.com/)驱动，让IE6-IE9兼容这些CSS3特性:
+* [border-radius](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius)
+* [box-shadow](https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-shadow)
+* [border-image](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-image)
+* [CSS3 Backgrounds](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Background_and_Borders/Using_CSS_multiple_backgrounds)
+* [Gradients](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Images/Using_CSS_gradients)
 
 ## Usage
 
-1.   [下载PIE](http://css3pie.com/download-latest)，解压所有文件到HTML文档所在服务器的某个目录， 如`/path/to/pie_files/`
-1.   配置你的postcss 
-    ```JavaScript
-    var postcss = require('postcss');
-    var pie = require('postcss-pie');
+[下载PIE](http://css3pie.com/download/)，解压所有文件，部署到web服务器的某个目录， 如`/pie/`
+配置你的postcss
 
-    postcss([
-        pie({
-            htcPath: '/path/to/pie_files/PIE.htc',
-            pieLoadPath: 'http://cdn.server/path/to/js-files/',
-        });
-    ]);
-    ```
+```JavaScript
+var postcss = require('postcss');
+var pie = require('postcss-pie');
 
-1.   [确保正确的Content-Type](http://css3pie.com/documentation/known-issues/#content-type)
+postcss([
+	pie({
+		// 必须使用绝对地址，且必须与html同一个域名，不得跨域，不得使用CDN地址。
+		htcPath: '/pie/PIE.htc',
+		// PIE的其他文件所在目录的路径，必须是完整url，可以是cdn地址。
+		pieLoadPath: 'http://server.com/pie/',
+	});
+]);
+```
 
-    如果IE在请求PIE.htc文件时，HTTP响应头中的Content-Type不是"text/x-component"，会造成功能失效。
-    在大部分服务器默认配置下，都不会出现这个问题。如果出现此问题，如Apache，请在.htaccess 文件中添加：
+## [确保正确的Content-Type](http://css3pie.com/documentation/known-issues/#content-type)
 
-    ```
-    AddType text/x-component .htc
-    ```
-
-## Options
-
-函数 pie(options) 返回一个新的PostCSS插件。参见[PostCSS API](https://github.com/postcss/postcss/blob/master/docs/api.md)中的插件使用文档。
-
-一共有两个选项：
-
-*   `htcPath` (string): `PIE.htc` 的所在路径，文件必须放在HTML文档所在服务器，路径必须使用`/`开头的绝对路径(不支持跨域名使用)。不使用此选项，则不会调用htc文件，此时你需要[使用JS方式激活](http://css3pie.com/documentation/pie-js/)
-*   `pieLoadPath` (string): `PIE_IE9.js`和`PIE_IE678.js`所在目录的路径，必须为完整的URL路径，不使用此属性时，则自动从`PIE.htc`所在目录加载js文件。如果未声明`htcPath`属性，则此项配置无效。
+如果IE在请求PIE.htc文件时，HTTP响应头中的Content-Type不是"text/x-component"，会造成功能失效。
+详见[PIE相关文档](http://css3pie.com/documentation/known-issues/#content-type)
 
 ## [PIE的文档](http://css3pie.com/documentation/)
