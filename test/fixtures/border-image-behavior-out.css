@@ -1,0 +1,9 @@
+html {
+  -pie-load-path: "http://css3pie.com/pie";
+}
+#bitmap {
+  border: 30px solid transparent;
+  padding: 20px;
+  border-image: url("https://mdn.mozillademos.org/files/4127/border.png") 30;
+  behavior: url("/pie/PIE.htc");
+}

@@ -1,11 +1,19 @@
+html {
+	-pie-load-path: "http://css3pie.com/pie";
+}
+
 .test {
 	-pie-background: url(skin/p_103x196_1.jpg) no-repeat 10px 20px/60px 60px padding-box;
 	background: url(skin/p_103x196_1.jpg) no-repeat 10px 20px/60px 60px padding-box;
+	behavior: url("/pie/PIE.htc");
+	behavior: none\9\0;
 }
 
 .test {
 	-pie-background: url(skin/p_103x196_1.jpg) no-repeat 90px 100px/60px padding-box #aaa;
 	background: url(skin/p_103x196_1.jpg) no-repeat 90px 100px/60px padding-box #aaa;
+	behavior: url("/pie/PIE.htc");
+	behavior: none\9\0;
 }
 
 .test {

@@ -7,7 +7,10 @@
 }
 
 .test {
+	-pie-background: url(skin/p_103x196_1.jpg) no-repeat 50px 60px/60px 80px padding-box;
 	background: url(skin/p_103x196_1.jpg) no-repeat 50px 60px/60px 80px padding-box;
+	behavior: url("/PIE/build/PIE.htc");
+	a {}
 }
 
 .test {

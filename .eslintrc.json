@@ -9,6 +9,28 @@
 	],
 	"root": true,
 	"rules": {
+		"arrow-spacing": [
+			"error",
+			{
+				"after": true,
+				"before": true
+			}
+		],
+		"comma-spacing": [
+			"error",
+			{
+				"after": true,
+				"before": false
+			}
+		],
+		"comma-dangle": [
+			"error",
+			"always-multiline"
+		],
+		"eqeqeq": [
+			"error",
+			"smart"
+		],
 		"indent": [
 			"error",
 			"tab",
@@ -16,16 +38,53 @@
 				"SwitchCase": 1
 			}
 		],
-		"quotes": [
+		"key-spacing": [
+			"error"
+		],
+		"keyword-spacing": [
+			"error"
+		],
+		"no-var": [
+			"error"
+		],
+		"no-console": [
 			"error",
-			"double",
 			{
-				"allowTemplateLiterals": true,
-				"avoidEscape": true
+				"allow": [
+					"warn",
+					"error"
+				]
 			}
 		],
-		"valid-jsdoc": [
+		"prefer-const": [
+			"error"
+		],
+		"quotes": [
 			"error",
+			"single"
+		],
+		"semi": [
+			"error"
+		],
+		"space-before-function-paren": [
+			"error"
+		],
+		"space-before-blocks": [
+			"error"
+		],
+		"space-infix-ops": [
+			"error"
+		],
+		"spaced-comment": [
+			"error",
+			"always"
+		],
+		"strict": [
+			"error",
+			"safe"
+		],
+		"valid-jsdoc": [
+			"warn",
 			{
 				"requireReturn": false
 			}
