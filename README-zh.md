@@ -4,7 +4,7 @@
 [![NPM version](https://img.shields.io/npm/v/postcss-pie.svg?style=flat-square)](https://www.npmjs.com/package/postcss-pie)
 [![Travis](https://img.shields.io/travis/gucong3000/postcss-pie.svg?&label=Linux)](https://travis-ci.org/gucong3000/postcss-pie)
 [![AppVeyor](https://img.shields.io/appveyor/ci/gucong3000/postcss-pie.svg?&label=Windows)](https://ci.appveyor.com/project/gucong3000/postcss-pie)
-[![Coverage Status](https://img.shields.io/coveralls/gucong3000/postcss-pie.svg)](https://coveralls.io/r/gucong3000/postcss-pie)
+[![Codecov](https://img.shields.io/codecov/c/github/gucong3000/postcss-pie.svg)](https://codecov.io/gh/gucong3000/postcss-pie)
 
 使IE能够显示一些最有用的CSS3的装饰特性。
 

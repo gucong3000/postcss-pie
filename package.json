@@ -9,7 +9,7 @@
   },
   "description": "makes IE capable of rendering several of the most useful CSS3 decoration features.",
   "devDependencies": {
-    "coveralls": "^3.0.1",
+    "codecov": "^3.0.2",
     "eslint": "^5.0.0",
     "got": "^8.3.1",
     "mocha": "^5.2.0",
@@ -53,7 +53,6 @@
     "url": "git+https://github.com/gucong3000/postcss-pie.git"
   },
   "scripts": {
-    "coveralls": "coveralls < coverage/lcov.info",
     "pretest": "eslint lib test",
     "test": "nyc mocha"
   },
