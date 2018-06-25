@@ -6,5 +6,5 @@ node_js:
   - "stable"
   - "--lts"
 
-after_success:
-  - "npm run coveralls"
+after_script:
+  - codecov
