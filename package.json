@@ -4,7 +4,7 @@
     "url": "https://github.com/gucong3000/postcss-pie/issues"
   },
   "dependencies": {
-    "postcss": "^7.0.1",
+    "postcss": "^7.0.31",
     "request": "^2.87.0"
   },
   "description": "makes IE capable of rendering several of the most useful CSS3 decoration features.",
